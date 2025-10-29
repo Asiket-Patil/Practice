@@ -2,16 +2,24 @@ import React from 'react'
 
 const Todo = ({ id, name, date, desc, status, onDelete, onDone }) => {
   return (
-    <div style={{ border: '1px solid black', padding: '10px', borderRadius: '10px', marginBottom: '10px' ,color:'black', backgroundColor:'white'}}>
-      <h3>{name}</h3>
-      <p><strong>Date:</strong> {date}</p>
-      <p><strong>Description:</strong> {desc}</p>
-      <p><strong>Status:</strong> {status ? "Done ✅" : "Pending ⏳"}</p>
+    <div className={`todo-card ${status ? "done" : ""}`}>
+      <div className="todo-content">
+        <h2 className="todo-title">{name}</h2>
+        <p className="todo-desc">{desc}</p>
+        <p className="todo-date">📅 {date}</p>
+        <p className="todo-status">
+          Status: <span>{status ? "Done ✅" : "Pending ⏳"}</span>
+        </p>
+      </div>
 
-      <button onClick={() => onDone(id)}>
-        {status ? "Mark as Pending" : "Mark as Done"}
-      </button>
-      <button onClick={() => onDelete(id)}>Delete</button>
+      <div className="todo-actions">
+        <button className="btn done-btn" onClick={() => onDone(id)}>
+          {status ? "Mark Pending" : "Mark Done"}
+        </button>
+        <button className="btn delete-btn" onClick={() => onDelete(id)}>
+          Delete
+        </button>
+      </div>
     </div>
   );
 };
