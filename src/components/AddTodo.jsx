@@ -22,24 +22,13 @@ const AddTodo = ({ onAdd }) => {
 
   return (
     <div>
-      <input
-        type="text"
-        placeholder="Enter task name"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-      />
-      <input
-        type="date"
-        value={date}
-        onChange={(e) => setDate(e.target.value)}
-      />
-      <input
-        type="text"
-        placeholder="Enter description"
-        value={desc}
-        onChange={(e) => setDesc(e.target.value)}
-      />
-      <button onClick={handleAdd}>Add</button>
+      <div className="todo-form">
+        <input type="text" placeholder="Enter title" value={name} onChange={(e) => setName(e.target.value)} />
+        <input type="date" value={date} onChange={(e) => setDate(e.target.value)} />
+        <input type="text" placeholder="Enter description" value={desc} onChange={(e) => setDesc(e.target.value)} />
+        <button onClick={handleAdd}>Add Todo</button>
+      </div>
+
     </div>
   );
 };
